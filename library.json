@@ -1,0 +1,52 @@
+{
+  "name": "CODROB_CARBOT",
+  "version": "1.0.0",
+  "description": "CODROB - CARBOT Library for controlling robotic car movements. Visit www.codrob.com.tr for more information.",
+  "keywords": [
+    "robotics",
+    "car",
+    "servo",
+    "dcmotor",
+    "control",
+    "CODROB",
+    "CARBOT"
+  ],
+  "authors": [
+    {
+      "name": "Samed Kaya",
+      "email": "info@codrob.com.tr",
+      "url": "https://codrob.com.tr",
+      "maintainer": true
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CODROB-Education-Technologies/CODROB-CARBOT_lib"
+  },
+  "export": {
+    "include": [
+      "src/*",
+      "include/*",
+      "examples/*",
+      "test/*",
+      "README.md",
+      "LICENSE",
+      "CHANGELOG.md"
+    ]
+  },
+  "license": "MIT",
+  "frameworks": [
+    "arduino"
+  ],
+  "platforms": [
+    "espressif8266",
+    "espressif32"
+  ],
+  "examples": [
+    "examples/CARBOT_basic_example"
+  ],
+  "homepage": "https://github.com/CODROB-Education-Technologies/CODROB-CARBOT_lib",
+  "dependencies": {
+    "ESP32Servo": ">=3.0.6"
+  }
+}
