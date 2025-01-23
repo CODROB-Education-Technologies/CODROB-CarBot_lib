@@ -4,46 +4,52 @@ CARBOT carBot;
 
 void setup()
 {
-  Serial.begin(115200);
-  carBot.begin();
-  Serial.println("CarBot Başlatıldı!");
+  carBot.begin(); // Initialize the car bot / Araç botunu başlat
 }
 
 void loop()
 {
-  // Aracı ileri hareket ettir (hız: 150)
-  Serial.println("İleri hareket (hız: 150)");
-  carBot.moveForward(150);
-  delay(2000);
-
-  // Aracı durdur
-  Serial.println("Durdur");
-  carBot.stop();
-  delay(1000);
-
-  // Aracı geri hareket ettir (hız: 200)
-  Serial.println("Geri hareket (hız: 200)");
-  carBot.moveBackward(200);
-  delay(2000);
-
-  // Direksiyonu 45 dereceye çevir
-  Serial.println("Direksiyon: 45 derece");
-  carBot.steer(45);
-  delay(1000);
-
-  // Direksiyonu 135 dereceye çevir
-  Serial.println("Direksiyon: 135 derece");
-  carBot.steer(135);
-  delay(1000);
-
-  // Buzzer çal
-  Serial.println("Buzzer çalıyor...");
-  carBot.horn(500);
-
-  // LED'i aç ve sonra kapat
-  Serial.println("LED açılıyor...");
+  // Turn on LED headlights / LED farları aç
   carBot.controlLED(true);
-  delay(1000);
-  Serial.println("LED kapanıyor...");
+  delay(2000);
+
+  // Turn off LED headlights / LED farları kapat
   carBot.controlLED(false);
+  delay(2000);
+
+  // Move the car forward / Aracı ileri hareket ettir
+  carBot.moveForward();
+  delay(2000);
+
+  // Stop the car / Aracı durdur
+  carBot.stop();
+  delay(2000);
+
+  // Steer left / Direksiyonu sola çevir
+  carBot.steer(45);
+  delay(2000);
+
+  // Center the steering / Direksiyonu ortala
+  carBot.steer(90);
+  delay(2000);
+
+  // Move the car backward / Aracı geri hareket ettir
+  carBot.moveBackward();
+  delay(2000);
+
+  // Stop the car / Aracı durdur
+  carBot.stop();
+  delay(2000);
+
+  // Steer right / Direksiyonu sağa çevir
+  carBot.steer(135);
+  delay(2000);
+
+  // Center the steering / Direksiyonu ortala
+  carBot.steer(90);
+  delay(2000);
+
+  // Play a sound with the buzzer / Buzzer çal
+  carBot.buzzerPlay(1000, 500);
+  delay(2000);
 }

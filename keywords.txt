@@ -3,17 +3,13 @@
 #######################################
 
 # Class name
-CARBOT                KEYWORD1
+CARBOT                  KEYWORD1
 
 # Methods
-begin                 KEYWORD2
-testCar               KEYWORD2
-moveForward           KEYWORD2
-moveBackward          KEYWORD2
-turnLeft              KEYWORD2
-turnRight             KEYWORD2
-stopCar               KEYWORD2
-playHorn              KEYWORD2
-controlLED            KEYWORD2
-writeLCD              KEYWORD2
-setServoAngle         KEYWORD2
+begin	                KEYWORD2
+moveForward	            KEYWORD2
+moveBackward	        KEYWORD2
+stop	                KEYWORD2
+steer	                KEYWORD2
+horn	                KEYWORD2
+controlLED	            KEYWORD2

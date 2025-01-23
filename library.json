@@ -1,7 +1,7 @@
 {
   "name": "CODROB_CARBOT",
-  "version": "1.0.1",
-  "description": "CODROB - CARBOT Library for controlling robotic car movements. Visit www.codrob.com.tr for more information.",
+  "version": "1.0.3",
+  "description": "CODROB - CARBOT Library for controlling robotic car movements. Visit www.codrob.com.tr for more information. / CODROB - CARBOT Kütüphanesi, robotik araç hareketlerini kontrol etmek için geliştirilmiştir. Daha fazla bilgi için www.codrob.com.tr adresini ziyaret edin.",
   "keywords": [
     "robotics",
     "car",
@@ -46,7 +46,11 @@
     "examples/CARBOT_basic_example"
   ],
   "homepage": "https://github.com/CODROB-Education-Technologies/CODROB-CARBOT_lib",
-  "dependencies": {
-    "ESP32Servo": ">=3.0.6"
-  }
+  "dependencies": [
+    {
+      "name": "ESP32Servo",
+      "platforms": "espressif32",
+      "version": ">=3.0.6"
+    }
+  ]
 }

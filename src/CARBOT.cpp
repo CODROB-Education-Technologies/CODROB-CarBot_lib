@@ -1,67 +1,157 @@
 #include "CARBOT.h"
 
-// Constructor
+// Constructor / Yapıcı
 CARBOT::CARBOT()
 {
-  _steeringPin = 32; // Direksiyon servo motor pin
-  _motorPin1 = 26;   // Motor 1 pin (L293D IN1)
-  _motorPin2 = 27;   // Motor 2 pin (L293D IN2)
-  _enablePin = 25;   // PWM kontrol pin (L293D ENA)
-  _buzzerPin = 33;   // Buzzer pin
-  _ledPin = 26;      // LED pin
+#if defined(ESP32)
+  _steeringPin = 32;
+  _motorPin1 = 27;
+  _motorPin2 = 33;
+  _buzzerPin = 25;
+  _ledPin = 26;
+#elif defined(ESP8266)
+  _steeringPin = 13;
+  _motorPin1 = 12;
+  _motorPin2 = 14;
+  _buzzerPin = 5;
+  _ledPin = 4;
+#endif
 }
 
+// Initialize the car bot / Araç botunu başlat
 void CARBOT::begin()
 {
-  // Pin modlarını ayarla
-  pinMode(_motorPin1, OUTPUT);
-  pinMode(_motorPin2, OUTPUT);
-  pinMode(_enablePin, OUTPUT); // PWM pin
-  pinMode(_buzzerPin, OUTPUT);
-  pinMode(_ledPin, OUTPUT);
-
-  // Servo motoru başlat
+  configurePins();
   _steeringServo.attach(_steeringPin);
-  _steeringServo.write(90); // Başlangıç pozisyonu
+  _steeringServo.write(90); // Set steering to the initial position / Direksiyonu başlangıç pozisyonuna ayarla
 }
 
-void CARBOT::moveForward(int speed)
+// Configure pins based on the platform / Platforma göre pinleri ayarla
+void CARBOT::configurePins()
 {
-  speed = constrain(speed, 0, 255); // Hız değerini 0-255 arasında sınırlandır
-  analogWrite(_enablePin, speed);   // Hız ayarı (PWM)
-  digitalWrite(_motorPin1, HIGH);   // İleri hareket
+  pinMode(_motorPin1, OUTPUT);
+  pinMode(_motorPin2, OUTPUT);
+  pinMode(_buzzerPin, OUTPUT);
+  pinMode(_ledPin, OUTPUT);
+}
+
+// Move the car forward / Aracı ileri hareket ettir
+void CARBOT::moveForward()
+{
+  digitalWrite(_motorPin1, HIGH);
   digitalWrite(_motorPin2, LOW);
 }
 
-void CARBOT::moveBackward(int speed)
+// Move the car backward / Aracı geri hareket ettir
+void CARBOT::moveBackward()
 {
-  speed = constrain(speed, 0, 255); // Hız değerini 0-255 arasında sınırlandır
-  analogWrite(_enablePin, speed);   // Hız ayarı (PWM)
-  digitalWrite(_motorPin1, LOW);    // Geri hareket
+  digitalWrite(_motorPin1, LOW);
   digitalWrite(_motorPin2, HIGH);
 }
 
+// Stop the car / Aracı durdur
 void CARBOT::stop()
 {
-  analogWrite(_enablePin, 0);    // PWM sinyalini durdur
-  digitalWrite(_motorPin1, LOW); // Tüm motor çıkışlarını kapat
+  digitalWrite(_motorPin1, LOW);
   digitalWrite(_motorPin2, LOW);
 }
 
+// Steer the car (0-180 degrees) / Direksiyonu verilen açıya çevir
 void CARBOT::steer(int angle)
 {
-  angle = constrain(angle, 0, 180); // Açı sınırlandırma
-  _steeringServo.write(angle);      // Direksiyonu verilen açıya çevir
+  _steeringServo.write(constrain(angle, 0, 180));
 }
 
-void CARBOT::horn(int duration)
-{
-  tone(_buzzerPin, 1000); // 1000 Hz frekansında ses çıkar
-  delay(duration);        // Belirtilen süre boyunca bekle
-  noTone(_buzzerPin);     // Sesi kapat
-}
-
+// Control the car's LED headlights / Farları kontrol et
 void CARBOT::controlLED(bool state)
 {
-  digitalWrite(_ledPin, state ? HIGH : LOW); // LED'i aç/kapat
+  digitalWrite(_ledPin, state ? LOW : HIGH); // LED is active LOW / LED aktif LOW
+}
+
+// Play a sound with the buzzer / Buzzer çal
+void CARBOT::buzzerPlay(int frequency, int duration)
+{
+#if defined(ESP32)
+  analogWrite(_buzzerPin, frequency);
+  delay(duration);
+  analogWrite(_buzzerPin, 0);
+#elif defined(ESP8266)
+  tone(_buzzerPin, frequency, duration);
+  delay(duration);
+  noTone(_buzzerPin);
+#endif
+}
+
+// Play the National Anthem / İstiklal Marşı'nı çal
+void ARMBOT::istiklalMarsiCal()
+{
+#if defined(ESP32)
+  // Adjusted tones for analogWrite (mapped to appropriate PWM values)
+  buzzerPlay(100, 400); // C4
+  delay(400);
+  buzzerPlay(130, 400); // E4
+  delay(400);
+  buzzerPlay(160, 400); // G4
+  delay(400);
+  buzzerPlay(145, 400); // F4
+  delay(400);
+  buzzerPlay(130, 600); // E4
+  delay(600);
+  buzzerPlay(145, 400); // F4
+  delay(400);
+  buzzerPlay(130, 400); // E4
+  delay(400);
+  buzzerPlay(115, 400); // D4
+  delay(400);
+  buzzerPlay(100, 600); // C4
+  delay(600);
+  buzzerPlay(130, 400); // E4
+  delay(400);
+  buzzerPlay(145, 400); // F4
+  delay(400);
+  buzzerPlay(160, 400); // G4
+  delay(400);
+  buzzerPlay(130, 600); // E4
+  delay(600);
+  buzzerPlay(115, 400); // D4
+  delay(400);
+  buzzerPlay(100, 400); // C4
+  delay(400);
+  buzzerPlay(115, 600); // D4
+  delay(600);
+
+#elif defined(ESP8266)
+  buzzerPlay(262, 400);
+  delay(400);
+  buzzerPlay(330, 400);
+  delay(400);
+  buzzerPlay(392, 400);
+  delay(400);
+  buzzerPlay(349, 400);
+  delay(400);
+  buzzerPlay(330, 600);
+  delay(600);
+  buzzerPlay(349, 400);
+  delay(400);
+  buzzerPlay(330, 400);
+  delay(400);
+  buzzerPlay(294, 400);
+  delay(400);
+  buzzerPlay(262, 600);
+  delay(600);
+  buzzerPlay(330, 400);
+  delay(400);
+  buzzerPlay(349, 400);
+  delay(400);
+  buzzerPlay(392, 400);
+  delay(400);
+  buzzerPlay(330, 600);
+  delay(600);
+  buzzerPlay(294, 400);
+  delay(400);
+  buzzerPlay(262, 400);
+  delay(400);
+  buzzerPlay(294, 600);
+  delay(600);
+#endif
 }
