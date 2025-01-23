@@ -1,7 +1,7 @@
 # CARBOT Library User Guide  
 This library is specially designed and produced by the CODROB developer team to control the CARBOT product.  
 
-![CARBOT Image](<images/1 (2).jpg>)  
+![CARBOT Image](<images/1.jpg>)  
 
 ---
 
@@ -19,7 +19,7 @@ This library is specially designed and produced by the CODROB developer team to 
 # CARBOT Kütüphanesi Kullanım Kılavuzu  
 Bu kütüphane CODROB geliştirici ekibi tarafından CARBOT ürününü kontrol etmek için özel olarak tasarlanmış ve üretilmiştir.  
 
-![CARBOT Görsel](<images/1 (2).jpg>)  
+![CARBOT Görsel](<images/1.jpg>)  
 
 ---
 
@@ -48,7 +48,7 @@ This library is licensed by **Samed KAYA in 2024**. See the LICENSE file for det
 
 ## Additional Visuals / Ek Görseller  
 
-![CARBOT Front](<images/1 (1).jpg>)  
-![CARBOT Angle](<images/1 (4).jpg>)  
-![CARBOT Diagram](<images/1 (8).jpg>)  
-![CARBOT Vector](<images/VEKTOR.jpg>)  
+![CARBOT Front](<images/2.jpg>)  
+![CARBOT Angle](<images/3.jpg>)  
+![CARBOT Diagram](<images/4.jpg>)  
+![CARBOT Vector](<images/5.jpg>)  
