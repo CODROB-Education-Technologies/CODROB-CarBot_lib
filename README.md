@@ -51,4 +51,4 @@ This library is licensed by **Samed KAYA in 2024**. See the LICENSE file for det
 ![CARBOT Front](<images/1 (1).jpg>)  
 ![CARBOT Angle](<images/1 (4).jpg>)  
 ![CARBOT Diagram](<images/1 (8).jpg>)  
-![CARBOT Vector](<images/VEKTOR.png>)  
+![CARBOT Vector](<images/VEKTOR.jpg>)  
