@@ -83,7 +83,7 @@ void CARBOT::buzzerPlay(int frequency, int duration)
 }
 
 // Play the National Anthem / İstiklal Marşı'nı çal
-void ARMBOT::istiklalMarsiCal()
+void CARBOT::istiklalMarsiCal()
 {
 #if defined(ESP32)
   // Adjusted tones for analogWrite (mapped to appropriate PWM values)
