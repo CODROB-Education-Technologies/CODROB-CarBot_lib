@@ -8,6 +8,8 @@
 #include <ESP32Servo.h>
 #elif defined(ESP8266)
 #include <Servo.h>
+#else
+#include <Servo.h>
 #endif
 
 class CARBOT
@@ -25,6 +27,7 @@ public:
 
 private:
   Servo _steeringServo; // Servo object for steering / Direksiyon servo motor nesnesi
+  int currentAngle = 0;
 
   // Pins for motor, servo, buzzer, and LED / Motor, servo, buzzer ve LED pinleri
   int _steeringPin;

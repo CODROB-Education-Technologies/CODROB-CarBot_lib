@@ -22,7 +22,15 @@ CARBOT::CARBOT()
 void CARBOT::begin()
 {
   configurePins();
-  _steeringServo.attach(_steeringPin);
+#if defined(ESP32)
+  _steeringServo.attach(_steeringPin, 500, 2500);
+  // **ESP32 için 1000-2000 µs kullan**
+#elif defined(ESP8266)
+  _steeringServo.attach(_steeringPin, 500, 2500);
+#else
+  if (!servo.attach(pin)) // **ESP32 için 1000-2000 µs kullan**
+#endif
+
   _steeringServo.write(90); // Set steering to the initial position / Direksiyonu başlangıç pozisyonuna ayarla
 }
 
