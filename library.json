@@ -1,6 +1,6 @@
 {
   "name": "CODROB_CARBOT",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "CODROB - CARBOT Library for controlling robotic car movements. Visit www.codrob.com.tr for more information. / CODROB - CARBOT Kütüphanesi, robotik araç hareketlerini kontrol etmek için geliştirilmiştir. Daha fazla bilgi için www.codrob.com.tr adresini ziyaret edin.",
   "keywords": [
     "robotics",
@@ -25,12 +25,12 @@
   },
   "export": {
     "include": [
-      "src/*",
-      "include/*",
       "examples/*",
-      "test/*",
+      "CARBOT.h",
+      "CARBOT.cpp",
       "README.md",
       "keywords.txt",
+      "library.properties",
       "LICENSE",
       "CHANGELOG.md"
     ]

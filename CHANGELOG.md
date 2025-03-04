@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.0] - 2025-03-04
+### Added
+- Added Arduino IDE Suport
+
 ## [1.0.3] - 2025-01-23
 ### Fixed
 - Resolved buzzer and servo signal conflicts for ESP32 and ESP8266.
