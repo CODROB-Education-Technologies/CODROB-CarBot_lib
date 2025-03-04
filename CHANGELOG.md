@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.2.1] - 2025-03-04
+## [1.2.2] - 2025-03-04
 ### Added
 - Added Arduino IDE Suport
 
